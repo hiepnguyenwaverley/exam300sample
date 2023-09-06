@@ -12,7 +12,7 @@ for (int i = 0; i < soluong.Length; i++)
 {
 
     tong += soluong[i];
-}
+}   
 tbc=tong/soluong.Length;
 Console.WriteLine("Diem trung binh cua cac mon:{0}",tbc);
 Console.ReadLine();
