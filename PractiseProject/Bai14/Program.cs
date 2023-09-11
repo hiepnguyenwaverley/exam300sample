@@ -1,6 +1,6 @@
 ﻿Console.WriteLine("Moi ban Nhap tuoi cua mot nguoi");
 int tuoi=Convert.ToInt32(Console.ReadLine());
-if (tuoi == 0 && tuoi >150 )
+if (tuoi <= 0 && tuoi >150 )
 {
     Console.WriteLine("Moi ban nhap lai tuoi");
 }
