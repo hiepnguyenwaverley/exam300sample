@@ -9,7 +9,7 @@ c3 = Convert.ToInt32(Console.ReadLine());
 if (c1+c2>c3&&c1+c3>c2&&c2+c3>c1)//tong 2 canh phai lon hon canh con lai
 {
     Console.WriteLine("Day la 3 canh cua mot tam giac");
-    chuvi = (c1 + c2 + c3) / 2;
+    chuvi = c1 + c2 + c3;
     Console.WriteLine("chu vi tam giac :" + chuvi);
 
 }
