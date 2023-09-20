@@ -1,7 +1,7 @@
 ﻿int count = 0;
 Console.Write("Nhap 1 so nguyen duong n: ");
 int n =Convert.ToInt32(Console.ReadLine());
-for(int i = 1; i < n; i++)
+for(int i = 1; i <= n; i++)
 {
     if(i % 3 == 0)
     {
