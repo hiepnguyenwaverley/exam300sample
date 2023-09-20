@@ -1,12 +1,15 @@
 ﻿
-Console.WriteLine("nhap so nguyen duong n :");
-int n = Convert.ToInt32(Console.ReadLine());
-for(int i = 1; i < n; i++) // vong lap for , chay tu 1 den so n 
+Console.Write("Nhap 1 so nguyen duong :");
+int n=Convert.ToInt32(Console.ReadLine());
+List<int> list = new List<int>();
+for (int i = 1; i <= n; i++)
 {
-    if(i%3==0)
+    if (i % 3 == 0)
     {
-        Console.WriteLine("Cac so chia het cho 3 :"+i);
+        list.Add(i);
     }
 }
-Console.WriteLine("-");//khong co thi in dau - 
-Console.ReadKey();
+Console.Write("Cac so chia het cho 3 la: ");
+list.ForEach(x => Console.Write(x + " "));
+
+Console.ReadKey(); ;
