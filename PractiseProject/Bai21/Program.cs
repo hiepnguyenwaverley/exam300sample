@@ -9,7 +9,7 @@ if (km <= 1)
 else if(km > 1 && km <= 30 )
 {
     tien = 1*12000+(km-1)*10000;
-    
+
 }
 else
 {
