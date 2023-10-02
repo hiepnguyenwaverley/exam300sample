@@ -20,29 +20,7 @@ for (int i = 0; i < n; i++)
 }
 float tbc = sum / dem;
 
-Console.WriteLine("\nTrung binh cong cua cac so trong mang:" + Math.Round(tbc, 2)); // lam tron 2 so thap phan 
+Console.WriteLine("\nTrung binh cong cua cac so trong mang:" + Math.Round(tbc, 2)); 
 Console.ReadLine();
 
-//int tbc = 0;
-//Console.WriteLine("Nhap so nguyen duong n : ");
-//int n = Convert.ToInt32(Console.ReadLine());   
-//List<int> list = new List<int>();
-//for (int i = 1; i < n; i++)
-//{
-//    if(i%2==0)
-//    {
-//        list.Add(i);
-//    }
-//}
-//list.ForEach(i => Console.Write(i+" "));
-//int sum = 0;
-//for (int i = 0; i < list.Count; i++)
-//{
-//    sum = sum + list[i];
-//}
-//    tbc=sum/list.Count;
-//Console.WriteLine("\ntong cua cac so chan : " + sum);
-//Console.WriteLine("trung binh cong : "+tbc);
-//Console.ReadLine();
-//10
-//16 28 7 21 4 6 5 8 9 14
+

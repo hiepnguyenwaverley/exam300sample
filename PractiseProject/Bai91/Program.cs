@@ -24,24 +24,3 @@ Console.ReadLine();
 
 
 
-
-//Console.Write("Moi ban nhap vao chieu dai: ");
-//int d = int.Parse(Console.ReadLine());
-//Console.Write("Moi ban nhap vao chieu rong: ");
-//int r = int.Parse(Console.ReadLine());
-//for (int i = 1; i <= r; i++)
-//{
-//    for (int j = 1; j <= d; j++)
-//    {
-//        if ((j == 1) || (j == d) || (i == 1) || (i == r))
-//        {
-//            Console.Write('*');
-//        }
-//        else
-//        {
-//            Console.Write(' ');
-//        }
-//    }
-//    Console.WriteLine();
-//}
-//Console.ReadLine();

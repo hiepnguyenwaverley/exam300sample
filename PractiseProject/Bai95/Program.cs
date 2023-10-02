@@ -11,6 +11,6 @@ for (int i = 0; i < soluong.Length; i++)
 {
     tong = tong + soluong[i];
 }
-float tbc = tong / soluong.Length;//tong chia so luong phan tu trong mang
+float tbc = tong / soluong.Length;
 Console.WriteLine("trung binh cong cac so trong mang : "+Math. Round(tbc,1));
 Console.ReadLine();

@@ -1,4 +1,4 @@
-﻿//Số chính phương là số bằng bình phương đúng của một số nguyên
+﻿
 static Boolean sochinhphuong(int n)
 {
     bool scp = false;
@@ -15,7 +15,7 @@ static Boolean sochinhphuong(int n)
     }
     else
         return false;
-
+     
 }
 int dem = 0;
 float tong = 0;
@@ -41,6 +41,3 @@ for (int i = 0; i < n; i++)
 tbc = tong / dem;
 Console.WriteLine("\nTrung binh cong cua cac so chinh phuong: " +Math.Round(tbc,1));
 Console.ReadLine();
-
-//14
-//16 28 -16 -4 9 11 28 8 10 21 4 30 81 -14

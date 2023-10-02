@@ -1,4 +1,4 @@
-﻿//Số nguyên tố là tập hợp những số tự nhiên chỉ chia hết cho 1 và cho chính nó.
+﻿
 static Boolean songuyento(int n)
 {
     bool snt = true;
@@ -36,5 +36,3 @@ for (int i = 0; i < n;i++)
 }
 Console.WriteLine("\nTrong mang co {0} so nguyen to", count);
 Console.ReadLine();
-//14
-//3 4 4 6 7 8 9 10 11 12 13 14 15 16 17

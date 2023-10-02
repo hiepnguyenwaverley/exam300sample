@@ -1,4 +1,4 @@
-﻿//Số nguyên tố là tập hợp những số tự nhiên chỉ chia hết cho 1 và cho chính nó. 
+﻿
 static Boolean songuyento(int n)
 {
     bool snt = true;
@@ -12,7 +12,7 @@ static Boolean songuyento(int n)
     else    
         return false;
 }
-
+ 
 float tong = 0;
 int dem = 0;
 Console.Write("Nhap so nguyen duong n: ");
@@ -37,5 +37,4 @@ for (int i = 0; i < n; i++)
 Console.WriteLine("\nTrung binh cong cua cac so nguyen to : " + Math.Round(tbc,2));
 Console.ReadLine();
 
-//14
-//3 4 4 6 7 8 9 10 11 12 13 14 15 16 17
+
