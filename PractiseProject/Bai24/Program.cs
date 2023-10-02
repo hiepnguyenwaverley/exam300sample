@@ -8,6 +8,7 @@ for(int i = 1; i <= n; i++)
         Console.Write(" "+i);
         count=count+1;
     }
+
 }
 Console.WriteLine("\nSo luong so chia het cho 3 la : "+count);
 Console.ReadLine();
