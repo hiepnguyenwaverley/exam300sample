@@ -1,22 +1,29 @@
 ﻿
-Console.Write("Nhap so n : ");
-int n = Convert.ToInt32(Console.ReadLine());
-Console.Write("Nhap so k : ");
-int k = Convert.ToInt32(Console.ReadLine());
-int gt = 1;
-int gt2 = 1;
-for (int i = 1; i <= n; i++)
+class Program
 {
-    gt = gt * i;
-}
-for (int i = 1; i <= k; i++)
-{
-    gt2 = gt2 * i;
-}
-int gt3 = gt - gt2;
-int tohop = 0;
-tohop = gt / gt2*gt3;
-Console.WriteLine("gt1: " + gt);
-Console.WriteLine("gt2: " + gt2);
-Console.WriteLine("ketqua: " + tohop);
-Console.ReadLine();
+    public static long GT(int a)
+    {
+        int kq = 1;
+        for (int i = 1; i <= a; i++)
+        {
+            kq = kq * i;
+        }
+        return kq;
+    }
+    public static long Tohop(int n, int k)
+    {
+        return GT(n) / (GT(k) * GT(n - k));
+
+    }
+    public static void Main()
+    {
+        Console.Write("Nhap so n : ");
+        int n = int.Parse(Console.ReadLine());
+        Console.Write("Nhap so k : ");
+        int k = int.Parse(Console.ReadLine());
+        Console.WriteLine("Giai Thua cua n va k :"+GT(n)+","+GT(k));
+        Console.Write("Ket qua :{0} / {1} * {2} = {3}",GT(n),GT(k),GT(n-k),Tohop(n, k));
+        Console.ReadKey();
+    }
+    
+        }
