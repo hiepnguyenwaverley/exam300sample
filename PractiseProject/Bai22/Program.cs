@@ -15,7 +15,7 @@ else if (kw <= 200)
 }
 else
 {
-    money = 50 * 600 + 50 * 800 + 100 * 1100 + (kw - 50 - 50 - 100) * 1500;
+    money = 50 * 600 + 50 * 800 + 100 * 1100 + (kw - 200) * 1500;
 }
 Console.WriteLine("So tien dien can tra :" + money);
 Console.ReadKey();
