@@ -25,5 +25,4 @@ class Program
         Console.Write("Ket qua :{0} / {1} * {2} = {3}",GT(n),GT(k),GT(n-k),Tohop(n, k));
         Console.ReadKey();
     }
-    
-        }
+}
