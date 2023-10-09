@@ -1,22 +1,25 @@
-﻿using System.Text;
-Console.OutputEncoding = Encoding.UTF8;
-float pt1 = 0;
-float pt2 = 0;
-float pt3 = 0;
-Console.Write("Nhập số a: ");
-float a = Convert.ToInt32(Console.ReadLine());
-Console.Write("Nhập số b: ");
-float b = Convert.ToInt32(Console.ReadLine());
-Console.Write("Nhập số c: ");
-float c = Convert.ToInt32(Console.ReadLine());
-pt1 = a + b + c;
-pt2 = a/b + c;
-pt3=a/(b+c);
+﻿
+double phuongtrinh1(int a,int b,int c)
+{
+    return a + b + c;
+}
+double phuongtrinh2(int a,int b,int c)
+{
+    return a/b + c;
+}
+double phuongtrinh3(int a,int b,int c)
+{
+    return a/(b+c);
+}
 
-Console.WriteLine("\t--Kết quả--:");
-
-Console.WriteLine("\t{0} + {1} + {2} = {3}",a,b,c,pt1);
-Console.WriteLine("\t{0} / {1} + {2} = {3}", a, b, c, Math.Round(pt2, 2));
-Console.WriteLine("\t{0} / ({1} + {2}) = {3}", a, b, c, Math.Round(pt3, 3));
+Console.Write("Nhap so a: ");
+int a = Convert.ToInt32(Console.ReadLine());
+Console.Write("Nhap so b: ");
+int b = Convert.ToInt32(Console.ReadLine());
+Console.Write("Nhap so c: ");
+int c = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("pt1:"+phuongtrinh1(a,b,c));
+Console.WriteLine("pt2:" + Math.Round(phuongtrinh2(a,b,c), 2));
+Console.WriteLine("pt3:" + Math.Round(phuongtrinh3(a,b,c), 3));
 Console.ReadLine();
 
