@@ -1,154 +1,121 @@
 ﻿
-class Program
+class phanso
 {
     static void Main(string[] args)
     {
-        chuoiphanso c = new chuoiphanso();
-        c.Nhap();
-        c.Xuat();
-        phanso tich = c.tinhtich();
-        Console.Write("\nTich  la : ");
-        tich.xuat();
+        Console.WriteLine("--Nhap phan so 1-- ");
+        phanso p1 = new phanso();
+        p1.Nhap();
+        Console.WriteLine("--Nhap phan so 2-- ");
+        phanso p2 = new phanso();
+        p2.Nhap();
+        phanso kq = new phanso();
 
-        phanso tong = c.tinhtong();
-        Console.Write("\nTong  la : ");
-        tong.xuat();
+        Console.Write("\nTong cua 2 phan so: ");
+        kq = kq.cong(p1, p2);
+        kq = kq.Rutgon(p1, p2);
+        kq.Xuat();
 
-        phanso hieu = c.tinhhieu();
-        Console.Write("\nHieu  la : ");
-        hieu.xuat();
+        Console.Write("\nHieu cua 2 phan so: ");
+        kq = kq.hieu(p1, p2);
+        kq = kq.Rutgon(p1, p2);
+        kq.Xuat();
 
-        phanso thuong = c.tinhthuong();
-        Console.Write("\nThuong  la : ");
-        thuong.xuat();
-        Console.ReadLine();
-    }
-}
-class phanso
-{
-    private float tu, mau;
-    public float TuSo
-    {
-        get { return tu; }
-        set { tu = value; }
-    }
-    public float MauSo
-    {
-        get { return mau; }
-        set
-        {
-            if (value != 0)
-                mau = value;
-        }
-    }
-    public void nhap()
-    {
-        Console.Write("+ Nhap tu so: ");
-        tu = Convert.ToInt32(Console.ReadLine());
-        do
-        {
-            Console.Write("+ Nhap tu mau: ");
-            mau = Convert.ToInt32(Console.ReadLine());
+        Console.Write("\nTich cua 2 phan so: ");
+        kq = kq.tich(p1, p2);
+        kq = kq.Rutgon(p1, p2);
+        kq.Xuat();
 
-        } while (mau == 0);
+        Console.Write("\nThuong cua 2 phan so: ");
+        kq = kq.thuong(p1, p2);
+        kq = kq.Rutgon(p1, p2);
+        kq.Xuat();
+        Console.Read();
+
+
 
     }
-    public static phanso operator +(phanso phanSo1, phanso phanSo2) // toán tử cộng 2 phân  số
-    {
-        phanso phansoKQ = new phanso();
-        phansoKQ.TuSo = phanSo1.TuSo * phanSo2.MauSo + phanSo2.TuSo * phanSo1.MauSo;
-        phansoKQ.MauSo = phanSo1.MauSo * phanSo2.MauSo;
-        return phansoKQ;
-    }
-    public static phanso operator -(phanso phanSo1, phanso phanSo2) // toán tử tru 2 phân số
-    {
-        phanso phansoKQ = new phanso();
-        phansoKQ.TuSo = phanSo1.TuSo * phanSo2.MauSo - phanSo2.TuSo * phanSo1.MauSo;
-        phansoKQ.MauSo = phanSo1.MauSo * phanSo2.MauSo;
-        return phansoKQ;
-    }
-    public static phanso operator *(phanso phanSo1, phanso phanSo2) // toán tử * 2 phân số
-    {
-        phanso phansoKQ = new phanso();
-        phansoKQ.TuSo = phanSo1.TuSo * phanSo2.TuSo;
-        phansoKQ.MauSo = phanSo1.MauSo * phanSo2.MauSo;
-        return phansoKQ;
-    }
-    public static phanso operator /(phanso phanSo1, phanso phanSo2)// toán tử / 2 phân số
-    {
-        phanso phansoKQ = new phanso();
-        phansoKQ.TuSo = phanSo1.TuSo * phanSo2.MauSo;
-        phansoKQ.MauSo = phanSo1.MauSo * phanSo2.TuSo;
-        return phansoKQ;
-    }
 
-    public void xuat()
-    {
-        Console.Write(" {0}/{1} ", tu, mau);
-    }
-}
-class chuoiphanso
-{
-    phanso[] ps;
-    int n;
+    public int tuso { get; set; }
+    public int mauso { get; set; }
+
     public void Nhap()
     {
-        Console.Write("Nhap so luong phan so :");
-        n = Convert.ToInt32(Console.ReadLine());
-        ps = new phanso[n];
-        for (int i = 0; i < n; i++)
-        {
-            ps[i] = new phanso();
-            Console.WriteLine("Phan so thu {0}", i + 1);
-            ps[i].nhap();
-        }
+        Console.Write("Nhap tu so: ");
+        tuso = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Nhap mau so: ");
+        mauso = Convert.ToInt32(Console.ReadLine());
+
     }
     public void Xuat()
     {
-        for (int i = 0; i < n; i++)
+        Console.Write("{0}/{1}", tuso, mauso);
+
+    }
+    public int UCLN(int a, int b)
+    {
+        a = tuso;
+        b = mauso;
+        while (a != b)
         {
-            ps[i].xuat();
-            Console.Write(" , ");
+            if (a > b)
+            {
+                a = a - b;
+            }
+            else
+            {
+                b = b - a;
+            }
         }
+        return a;
+    }
+    public phanso cong(phanso p1, phanso p2)
+    {
+        phanso kq = new phanso();
+        kq.tuso = p1.tuso * p2.mauso + p2.tuso * p1.mauso;
+        kq.mauso = p1.mauso * p2.mauso;
+        return kq;
+    }
+    public phanso hieu(phanso p1, phanso p2)
+    {
+        phanso kq = new phanso();
+        kq.tuso = p1.tuso * p2.mauso - p2.tuso * p1.mauso;
+        kq.mauso = p1.mauso * p2.mauso;
+        return kq;
+    }
+    public phanso tich(phanso p1, phanso p2)
+    {
+        phanso kq = new phanso();
+        kq.tuso = p1.tuso * p2.tuso;
+        kq.mauso = p1.mauso * p2.mauso;
+        return kq;
+    }
+    public phanso thuong(phanso p1, phanso p2)
+    {
+        phanso kq = new phanso();
+        kq.tuso = p1.tuso * p2.mauso;
+        kq.mauso = p1.mauso * p2.tuso;
+        return kq;
+    }
+    public phanso Rutgon(phanso p1, phanso p2)
+    {
+        phanso rutgon = new phanso();
+        int ucln = UCLN(tuso, mauso);
+        if (ucln != 0)
+        {
+            rutgon.tuso = tuso / ucln;
+            rutgon.mauso = mauso / ucln;
+        }
+        else
+        {
+            rutgon.tuso = tuso;
+            rutgon.mauso = mauso;
+        }
+
+        return rutgon;
     }
 
-    public phanso tinhtong()
-    {
-        phanso tong = ps[0];
-        for (int i = 1; i < n; i++)
-        {
-            tong = tong + ps[i];
-        }
-        return tong;
-    }
-    public phanso tinhhieu()
-    {
-        phanso hieu = ps[0];
-        for (int i = 1; i < n; i++)
-        {
-            hieu = hieu - ps[i];
-        }
-        return hieu;
-    }
-    public phanso tinhtich()
-    {
-        phanso tich = ps[0];
-        for (int i = 1; i < n; i++)
-        {
-            tich = tich * ps[i];
-        }
-        return tich;
-    }
-
-    public phanso tinhthuong()
-    {
-        phanso thuong = ps[0];
-        for (int i = 1; i < n; i++)
-        {
-            thuong = thuong / ps[i];
-        }
-        return thuong;
-    }
 
 }
+
 
