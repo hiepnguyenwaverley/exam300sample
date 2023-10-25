@@ -1,4 +1,6 @@
 ﻿
+using System.Security.Cryptography;
+
 class phanso
 {
     static void Main(string[] args)
@@ -9,26 +11,32 @@ class phanso
         Console.WriteLine("--Nhap phan so 2-- ");
         phanso p2 = new phanso();
         p2.Nhap();
+        phanso nguyen = new phanso();
         phanso kq = new phanso();
+
 
         Console.Write("\nTong cua 2 phan so: ");
         kq = kq.cong(p1, p2);
-        kq = kq.Rutgon(p1, p2);
+        kq = kq.Rutgon();
+        kq= kq.Honso();
         kq.Xuat();
 
         Console.Write("\nHieu cua 2 phan so: ");
         kq = kq.hieu(p1, p2);
-        kq = kq.Rutgon(p1, p2);
+        kq = kq.Rutgon();
+        kq = kq.Honso();
         kq.Xuat();
 
         Console.Write("\nTich cua 2 phan so: ");
         kq = kq.tich(p1, p2);
-        kq = kq.Rutgon(p1, p2);
+        kq = kq.Rutgon();
+        kq = kq.Honso();
         kq.Xuat();
 
         Console.Write("\nThuong cua 2 phan so: ");
         kq = kq.thuong(p1, p2);
-        kq = kq.Rutgon(p1, p2);
+        kq = kq.Rutgon();
+        kq = kq.Honso();
         kq.Xuat();
         Console.Read();
 
@@ -38,6 +46,7 @@ class phanso
 
     public int tuso { get; set; }
     public int mauso { get; set; }
+    public int nguyen { get; set; } 
 
     public void Nhap()
     {
@@ -49,7 +58,12 @@ class phanso
     }
     public void Xuat()
     {
-        Console.Write("{0}/{1}", tuso, mauso);
+
+
+        //Console.Write("{0}/{1}", tuso, mauso);
+        Console.Write("{0},{1}/{2}", nguyen,tuso, mauso);
+
+
 
     }
     public int UCLN(int a, int b)
@@ -69,6 +83,8 @@ class phanso
         }
         return a;
     }
+
+
     public phanso cong(phanso p1, phanso p2)
     {
         phanso kq = new phanso();
@@ -97,11 +113,11 @@ class phanso
         kq.mauso = p1.mauso * p2.tuso;
         return kq;
     }
-    public phanso Rutgon(phanso p1, phanso p2)
+    public phanso Rutgon()
     {
         phanso rutgon = new phanso();
         int ucln = UCLN(tuso, mauso);
-        if (ucln != 0)
+                if (ucln != 0)
         {
             rutgon.tuso = tuso / ucln;
             rutgon.mauso = mauso / ucln;
@@ -111,8 +127,18 @@ class phanso
             rutgon.tuso = tuso;
             rutgon.mauso = mauso;
         }
-
         return rutgon;
+    }
+
+    public phanso Honso()
+    {
+        phanso honso = new phanso();
+        honso.nguyen = tuso / mauso;
+        honso.tuso = tuso % mauso; 
+        honso.mauso = mauso;
+        return honso;
+
+        
     }
 
 
