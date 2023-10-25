@@ -26,14 +26,13 @@ class Program
                 Console.WriteLine(((DataRowView)m).Row.ItemArray[0] + "       | " + ((DataRowView)m).Row.ItemArray[1] + "   | " + ((DataRowView)m).Row.ItemArray[2]);
                 employeeList.Add
                     (new Employee
-                    {
-                        EmployeeName = ((DataRowView)m).Row.ItemArray[0].ToString(),
-                        Department = ((DataRowView)m).Row.ItemArray[1].ToString(),
-                        GrossSalary = Int32.Parse(((DataRowView)m).Row.ItemArray[2].ToString())
-                    }
+                        {
+                            EmployeeName = ((DataRowView)m).Row.ItemArray[0].ToString(),
+                            Department = ((DataRowView)m).Row.ItemArray[1].ToString(),
+                            GrossSalary = Int32.Parse(((DataRowView)m).Row.ItemArray[2].ToString())
+                        }
                     );
             }
-
         }
 
         double ttncn = 0;
@@ -246,7 +245,7 @@ class Program
             newRow.CreateCell(3).SetCellValue(item.GrossSalary);
             rowIndex++;
         }
-        FileStream fs = new FileStream(@"D:\project\exam300sample\PractiseProject\calculate_EmploySalary\exercise1.xlsx", FileMode.CreateNew);
+        FileStream fs = new FileStream(@"D:\project\exam300sample\PractiseProject\calculate_EmploySalary\exercise2.xlsx", FileMode.CreateNew);
         wb.Write(fs);
         Console.ReadLine();
 
