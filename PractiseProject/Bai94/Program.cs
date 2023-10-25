@@ -11,7 +11,6 @@ class phanso
         Console.WriteLine("--Nhap phan so 2-- ");
         phanso p2 = new phanso();
         p2.Nhap();
-        phanso nguyen = new phanso();
         phanso kq = new phanso();
 
 
@@ -39,9 +38,6 @@ class phanso
         kq = kq.Honso();
         kq.Xuat();
         Console.Read();
-
-
-
     }
 
     public int tuso { get; set; }
@@ -58,13 +54,14 @@ class phanso
     }
     public void Xuat()
     {
-
-
-        //Console.Write("{0}/{1}", tuso, mauso);
-        Console.Write("{0},{1}/{2}", nguyen,tuso, mauso);
-
-
-
+        if (nguyen >= 1)
+        {
+            Console.Write("{0},{1}/{2}", nguyen, tuso, mauso);
+        }
+        else
+        {
+            Console.Write("{0}/{1}",tuso,mauso);
+        }
     }
     public int UCLN(int a, int b)
     {
