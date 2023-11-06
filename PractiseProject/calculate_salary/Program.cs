@@ -50,204 +50,192 @@ class Program
                 return;
             }
 
-
-            if (month % 2 == 0 && m.Department == "manager")
+            if(month % 2 ==0)
             {
-                if (tntt >= 0 && tntt <= 5000000) //5%
+                if (m.Department=="manager")
                 {
-                    ttncn = 5000000 * 0.05;
-                    m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn);
-                    m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.30);
-                    Console.WriteLine("Salary's Employeee work in Manager Department :  " + m.EmployeeName + "  | " + m.Department + " | " + m.GrossSalary);
-                }
+                    if (tntt >= 0 && tntt <= 5000000) //5%
+                    {
+                        m.GrossSalary = m.GrossSalary * 0.5;                               
+                        m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.30);
+                        Console.WriteLine("Salary's Employeee work in Manager Department :  " + m.EmployeeName + "  | " + m.Department + " | " + m.GrossSalary);
+                    }
+                    else if (tntt > 5000000 && tntt <= 10000000) //10%
+                    {
 
-                else if (tntt > 5000000 && tntt <= 10000000) //10%
-                {
-                    ttncn = (5000000 * 0.05) + ((10000000 - 5000000) * 0.1);
-                    m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn) * 0.30;
-                    m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.30);
-                    Console.WriteLine("Salary's Employeee work in Manager Department :  " + m.EmployeeName + "   | " + m.Department + " | " + m.GrossSalary);
-                }
+                        m.GrossSalary = (m.GrossSalary + 5000000) * 0.1;
+                        m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.30);
+                        Console.WriteLine("Salary's Employeee work in Manager Department :  " + m.EmployeeName + "   | " + m.Department + " | " + m.GrossSalary);
+                    }
 
-                else if (tntt > 10000000 && tntt <= 18000000) //15%
-                {
-                    ttncn = (5000000 * 0.05) + ((10000000 - 5000000) * 0.1) + ((18000000 - 10000000) * 0.15);
-                    m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn);
-                    m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.30);
-                    Console.WriteLine("Salary's Employeee work in Manager Department :  " + m.EmployeeName + "  | " + m.Department + " | " + m.GrossSalary);
-                }
+                    else if (tntt > 10000000 && tntt <= 18000000) //15%
+                    {
 
-                else if (tntt > 18000000 && tntt <= 32000000) //20%
-                {
-                    ttncn = (5000000 * 0.05) + ((10000000 - 5000000) * 0.1) + ((18000000 - 10000000) * 0.15) + ((32000000 - 18000000) * 0.20);
-                    m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn);
-                    m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.30);
-                    Console.WriteLine("Salary's Employeee work in Manager Department :  " + m.EmployeeName + "  | " + m.Department + " | " + m.GrossSalary);
-                }
+                        m.GrossSalary = (m.GrossSalary + 5000000 + 5000000 + 8000000)*0.15;
+                        m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.30);
+                        Console.WriteLine("Salary's Employeee work in Manager Department :  " + m.EmployeeName + "  | " + m.Department + " | " + m.GrossSalary);
+                    }
 
-                else if (tntt > 32000000 && tntt <= 52000000)//25%
-                {
-                    ttncn = (5000000 * 0.05) + ((10000000 - 5000000) * 0.1) + ((18000000 - 10000000) * 0.15) + ((32000000 - 18000000) * 0.20) + ((52000000 - 32000000) * 0.25);
-                    m.GrossSalary = m.GrossSalary - (m.GrossSalary * 0.105) - ttncn;
-                    m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.30);
-                    Console.WriteLine("Salary's Employeee work in Manager Department :  " + m.EmployeeName + "   0| " + m.Department + " | " + m.GrossSalary);
-                }
+                    else if (tntt > 18000000 && tntt <= 32000000) //20%
+                    {
 
-                else if (tntt > 52000000 && tntt <= 80000000) //30%
-                {
-                    ttncn = (5000000 * 0.05) + ((10000000 - 5000000) * 0.1) + ((18000000 - 10000000) * 0.15) + ((32000000 - 18000000) * 0.20) + ((52000000 - 32000000) * 0.25) + ((80000000 - 52000000) * 0.30);
-                    m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn);
-                    m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.30);
-                    Console.WriteLine("Salary's Employeee work in Manager Department :  " + m.EmployeeName + " | " + m.Department + " | " + m.GrossSalary);
-                }
-                else //35%
-                {
-                    ttncn = (5000000 * 0.05) + ((10000000 - 5000000) * 0.1) + ((18000000 - 10000000) * 0.15) + ((32000000 - 18000000) * 0.20) + ((52000000 - 32000000) * 0.25) + ((80000000 - 52000000) * 0.30) + ((89000000 - 80000000) * 0.35);
-                    m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn);
-                    m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.30);
-                    Console.WriteLine("Salary's Employeee work in Manager Department :  " + m.EmployeeName + "  | " + m.Department + " | " + m.GrossSalary);
-                }
+                        m.GrossSalary = (m.GrossSalary + 18000000 + 14000000)*0.20;
+                        m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.30);
+                        Console.WriteLine("Salary's Employeee work in Manager Department :  " + m.EmployeeName + "  | " + m.Department + " | " + m.GrossSalary);
+                    }
 
+                    else if (tntt > 32000000 && tntt <= 52000000)//25%
+                    {
+
+                        m.GrossSalary = (m.GrossSalary + 18000000 + 14000000+ 2000000)*0.25;
+                        m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.30);
+                        Console.WriteLine("Salary's Employeee work in Manager Department :  " + m.EmployeeName + "   0| " + m.Department + " | " + m.GrossSalary);
+                    }
+
+                    else if (tntt > 52000000 && tntt <= 80000000) //30%
+                    {
+                        
+                        m.GrossSalary = (m.GrossSalary+32000000+20000000+28000000)*0.30;
+                        m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.30);
+                        Console.WriteLine("Salary's Employeee work in Manager Department :  " + m.EmployeeName + " | " + m.Department + " | " + m.GrossSalary);
+                    }
+                    else //35%
+                    {
+                       
+
+                        m.GrossSalary = (m.GrossSalary + 52000000+80000000+9000000)*0.35;
+                        m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.30);
+                        Console.WriteLine("Salary's Employeee work in Manager Department :  " + m.EmployeeName + "  | " + m.Department + " | " + m.GrossSalary);
+                    }
+
+                }
+                if (m.Department=="leader")
+                {
+                    if (tntt >= 0 && tntt <= 5000000) //5%
+                    {
+                        m.GrossSalary = m.GrossSalary * 0.5;
+                        m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn);
+                       
+                        Console.WriteLine("Salary's Employeee work in Leader Department  :  " + m.EmployeeName + " | " + m.Department + "  | " + m.GrossSalary);
+                    }
+
+                    else if (tntt > 5000000 && tntt <= 10000000) //10%
+                    {
+                        m.GrossSalary = (m.GrossSalary + 5000000) * 0.1;
+
+                        Console.WriteLine("Salary's Employeee work in Leader Department  :  " + m.EmployeeName + " | " + m.Department + "  | " + m.GrossSalary);
+                    }
+
+                    else if (tntt > 10000000 && tntt <= 18000000) //15%
+                    {
+                        m.GrossSalary = (m.GrossSalary + 5000000 + 5000000 + 8000000) * 0.15;
+
+                        Console.WriteLine("Salary's Employeee work in Leader Department  :  " + m.EmployeeName + " | " + m.Department + "  | " + m.GrossSalary);
+                    }
+
+                    else if (tntt > 18000000 && tntt <= 32000000) //20%
+                    {
+
+                        m.GrossSalary = (m.GrossSalary + 18000000 + 14000000) * 0.20;
+                        Console.WriteLine("Salary's Employeee work in Leader Department  :  " + m.EmployeeName + "  | " + m.Department + "  | " + m.GrossSalary);
+                    }
+
+                    else if (tntt > 32000000 && tntt <= 52000000)//25%
+                    {
+                        m.GrossSalary = (m.GrossSalary + 18000000 + 14000000+ 20000000)*0.25;
+
+                        Console.WriteLine("Salary's Employeee work in Leader Department  :  " + m.EmployeeName + "  | " + m.Department + "  | " + m.GrossSalary);
+                    }
+
+                    else if (tntt > 52000000 && tntt <= 80000000) //30%
+                    {
+                        m.GrossSalary = (m.GrossSalary + 32000000+20000000 + 28000000)*0.30;
+
+                        Console.WriteLine("Salary's Employeee work in Leader Department  :  " + m.EmployeeName + "  | " + m.Department + "  | " + m.GrossSalary);
+                    }
+                    else //35%
+                    {
+                        m.GrossSalary = (tntt + 80000000) + (89000000-80000000)*0.35;
+
+                        Console.WriteLine("Salary's Employeee work in  Leader Department        :  " + m.EmployeeName + "      | " + m.Department + "  | " + m.GrossSalary);
+                    }
+                }
+                if (m.Department =="employee")
+                {
+                    if (tntt >= 0 && tntt <= 5000000) //5%
+                    {
+                        m.GrossSalary = m.GrossSalary * 0.5;
+                        m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn);
+
+                        Console.WriteLine("Salary's Employeee work in Department         :  " + m.EmployeeName + "  | " + m.Department + "| " + m.GrossSalary);
+                    }
+
+                    else if (tntt > 5000000 && tntt <= 10000000) //10%
+                    {
+                        m.GrossSalary = (m.GrossSalary + 5000000) * 0.1;
+
+                        Console.WriteLine("Salary's Employeee work in Department         :  " + m.EmployeeName + "  | " + m.Department + "| " + m.GrossSalary);
+                    }
+
+                    else if (tntt > 10000000 && tntt <= 18000000) //15%
+                    {
+                        m.GrossSalary = (m.GrossSalary + 5000000 + 5000000 + 8000000) * 0.15;
+
+                        Console.WriteLine("Salary's Employeee work in Department         :  " + m.EmployeeName + "  | " + m.Department + "| " + m.GrossSalary);
+                    }
+
+                    else if (tntt > 18000000 && tntt <= 32000000) //20%
+                    {
+
+                        m.GrossSalary = (m.GrossSalary + 18000000 + 14000000) * 0.20;
+                        Console.WriteLine("Salary's Employeee work in Department         :  " + m.EmployeeName + "  | " + m.Department + "| " + m.GrossSalary);
+                    }
+
+                    else if (tntt > 32000000 && tntt <= 52000000)//25%
+                    {
+                        m.GrossSalary = (m.GrossSalary + 18000000 + 14000000 + 20000000) * 0.25;
+
+                        Console.WriteLine("Salary's Employeee work in Department         :  " + m.EmployeeName + "  | " + m.Department + "| " + m.GrossSalary);
+                    }
+
+                    else if (tntt > 52000000 && tntt <= 80000000) //30%
+                    {
+                        m.GrossSalary = (m.GrossSalary + 32000000 + 20000000 + 28000000) * 0.30;
+
+                        Console.WriteLine("Salary's Employeee work in Department         :  " + m.EmployeeName + "  | " + m.Department + "| " + m.GrossSalary);
+                    }
+                    else //35%
+                    {
+                        m.GrossSalary = (tntt + 80000000) + (89000000 - 80000000) * 0.35;
+
+                        Console.WriteLine("Salary's Employeee work in Department         :  " + m.EmployeeName + "  | " + m.Department + "| " + m.GrossSalary);
+                    }
+
+                  
+                }
             }
 
-
-            if (month % 2 != 0 && m.Department == "leader")
-            {
-                if (tntt >= 0 && tntt <= 5000000) //5%
-                {
-                    ttncn = 5000000 * 0.05;
-                    m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn);
-                    m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.20);
-                    Console.WriteLine("Salary's Employeee work in Leader Department  :  " + m.EmployeeName + " | " + m.Department + "  | " + m.GrossSalary);
-                }
-
-                else if (tntt > 5000000 && tntt <= 10000000) //10%
-                {
-                    ttncn = (5000000 * 0.05) + ((10000000 - 5000000) * 0.1);
-                    m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn) * 0.30;
-                    m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.20);
-                    Console.WriteLine("Salary's Employeee work in Leader Department  :  " + m.EmployeeName + " | " + m.Department + "  | " + m.GrossSalary);
-                }
-
-                else if (tntt > 10000000 && tntt <= 18000000) //15%
-                {
-                    ttncn = (5000000 * 0.05) + ((10000000 - 5000000) * 0.1) + ((18000000 - 10000000) * 0.15);
-                    m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn);
-                    m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.20);
-                    Console.WriteLine("Salary's Employeee work in Leader Department  :  " + m.EmployeeName + " | " + m.Department + "  | " + m.GrossSalary);
-                }
-
-                else if (tntt > 18000000 && tntt <= 32000000) //20%
-                {
-                    ttncn = (5000000 * 0.05) + ((10000000 - 5000000) * 0.1) + ((18000000 - 10000000) * 0.15) + ((32000000 - 18000000) * 0.20);
-                    m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn);
-                    m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.20);
-                    Console.WriteLine("Salary's Employeee work in Leader Department  :  " + m.EmployeeName + "  | " + m.Department + "  | " + m.GrossSalary);
-                }
-
-                else if (tntt > 32000000 && tntt <= 52000000)//25%
-                {
-                    ttncn = (5000000 * 0.05) + ((10000000 - 5000000) * 0.1) + ((18000000 - 10000000) * 0.15) + ((32000000 - 18000000) * 0.20) + ((52000000 - 32000000) * 0.25);
-                    m.GrossSalary = m.GrossSalary - (m.GrossSalary * 0.105) - ttncn;
-                    m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.20);
-                    Console.WriteLine("Salary's Employeee work in Leader Department  :  " + m.EmployeeName + "  | " + m.Department + "  | " + m.GrossSalary);
-                }
-
-                else if (tntt > 52000000 && tntt <= 80000000) //30%
-                {
-                    ttncn = (5000000 * 0.05) + ((10000000 - 5000000) * 0.1) + ((18000000 - 10000000) * 0.15) + ((32000000 - 18000000) * 0.20) + ((52000000 - 32000000) * 0.25) + ((80000000 - 52000000) * 0.30);
-                    m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn);
-                    m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.20);
-                    Console.WriteLine("Salary's Employeee work in Leader Department  :  " + m.EmployeeName + "  | " + m.Department + "  | " + m.GrossSalary);
-                }
-                else //35%
-                {
-                    ttncn = (5000000 * 0.05) + ((10000000 - 5000000) * 0.1) + ((18000000 - 10000000) * 0.15) + ((32000000 - 18000000) * 0.20) + ((52000000 - 32000000) * 0.25) + ((80000000 - 52000000) * 0.30) + ((89000000 - 80000000) * 0.35);
-                    m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn);
-                    m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.20);
-                    Console.WriteLine("Salary's Employeee work in  Leader Department        :  " + m.EmployeeName + "      | " + m.Department + "  | " + m.GrossSalary);
-                }
-
-            }
-
-            if (m.Department == "employee")
-            {
-                if (tntt >= 0 && tntt <= 5000000) //5%
-                {
-                    ttncn = 5000000 * 0.05;
-                    m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn);
-                    m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.30);
-                    Console.WriteLine("Salary's Employeee work in Department         :  " + m.EmployeeName + " | " + m.Department + "| " + m.GrossSalary);
-                }
-
-                else if (tntt > 5000000 && tntt <= 10000000) //10%
-                {
-                    ttncn = (5000000 * 0.05) + ((10000000 - 5000000) * 0.1);
-                    m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn) * 0.30;
-
-                    Console.WriteLine("Salary's Employeee work in Department         :  " + m.EmployeeName + "  | " + m.Department + "| " + m.GrossSalary);
-                }
-
-                else if (tntt > 10000000 && tntt <= 18000000) //15%
-                {
-                    ttncn = (5000000 * 0.05) + ((10000000 - 5000000) * 0.1) + ((18000000 - 10000000) * 0.15);
-                    m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn);
-
-                    Console.WriteLine("Salary's Employeee work in Department         :  " + m.EmployeeName + "  | " + m.Department + "| " + m.GrossSalary);
-                }
-
-                else if (tntt > 18000000 && tntt <= 32000000) //20%
-                {
-                    ttncn = (5000000 * 0.05) + ((10000000 - 5000000) * 0.1) + ((18000000 - 10000000) * 0.15) + ((32000000 - 18000000) * 0.20);
-                    m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn);
-
-                    Console.WriteLine("Salary's Employeee work in Department         :  " + m.EmployeeName + "  | " + m.Department + "| " + m.GrossSalary);
-                }
-
-                else if (tntt > 32000000 && tntt <= 52000000)//25%
-                {
-                    ttncn = (5000000 * 0.05) + ((10000000 - 5000000) * 0.1) + ((18000000 - 10000000) * 0.15) + ((32000000 - 18000000) * 0.20) + ((52000000 - 32000000) * 0.25);
-                    m.GrossSalary = m.GrossSalary - (m.GrossSalary * 0.105) - ttncn;
-
-                    Console.WriteLine("Salary's Employeee work in Department         :  " + m.EmployeeName + " | " + m.Department + "| " + m.GrossSalary);
-                }
-
-                else if (tntt > 52000000 && tntt <= 80000000) //30%
-                {
-                    ttncn = (5000000 * 0.05) + ((10000000 - 5000000) * 0.1) + ((18000000 - 10000000) * 0.15) + ((32000000 - 18000000) * 0.20) + ((52000000 - 32000000) * 0.25) + ((80000000 - 52000000) * 0.30);
-                    m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn);
-
-                    Console.WriteLine("Salary's Employeee work in Department         :  " + m.EmployeeName + " | " + m.Department + "| " + m.GrossSalary);
-                }
-                else //35%
-                {
-                    ttncn = (5000000 * 0.05) + ((10000000 - 5000000) * 0.1) + ((18000000 - 10000000) * 0.15) + ((32000000 - 18000000) * 0.20) + ((52000000 - 32000000) * 0.25) + ((80000000 - 52000000) * 0.30) + ((89000000 - 80000000) * 0.35);
-                    m.GrossSalary = (m.GrossSalary - (m.GrossSalary * 0.105) - ttncn);
-
-                    Console.WriteLine("Salary's Employeee work in Department         :  " + m.EmployeeName + " | " + m.Department + "| " + m.GrossSalary);
-                }
-            }
         }
 
 
-        XSSFWorkbook wb = new XSSFWorkbook();
-        ISheet sheet = wb.CreateSheet();
-        var row = sheet.CreateRow(0);
-        row.CreateCell(1).SetCellValue("Employee");
-        row.CreateCell(2).SetCellValue("Department");
-        row.CreateCell(3).SetCellValue("Gross Salary");
+        //XSSFWorkbook wb = new XSSFWorkbook();
+        //ISheet sheet = wb.CreateSheet();
+        //var row = sheet.CreateRow(0);
+        //row.CreateCell(1).SetCellValue("Employee");
+        //row.CreateCell(2).SetCellValue("Department");
+        //row.CreateCell(3).SetCellValue("Gross Salary");
 
-        int rowIndex = 1;
-        foreach (var item in employeeList)
-        {
-            var newRow = sheet.CreateRow(rowIndex);
-            newRow.CreateCell(1).SetCellValue(item.EmployeeName);
-            newRow.CreateCell(2).SetCellValue(item.Department);
-            newRow.CreateCell(3).SetCellValue(item.GrossSalary);
-            rowIndex++;
-        }
-        FileStream fs = new FileStream(@"D:\project\exam300sample\PractiseProject\calculate_salary\exercise1.xlsx", FileMode.CreateNew);
-        wb.Write(fs);
+        //int rowIndex = 1;
+        //foreach (var item in employeeList)
+        //{
+        //    var newRow = sheet.CreateRow(rowIndex);
+        //    newRow.CreateCell(1).SetCellValue(item.EmployeeName);
+        //    newRow.CreateCell(2).SetCellValue(item.Department);
+        //    newRow.CreateCell(3).SetCellValue(item.GrossSalary);
+        //    rowIndex++;
+        //}
+        //FileStream fs = new FileStream(@"D:\project\exam300sample\PractiseProject\calculate_salary\exercise1.xlsx", FileMode.CreateNew);
+        //wb.Write(fs);
         Console.ReadLine();
 
 
