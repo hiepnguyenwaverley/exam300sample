@@ -38,6 +38,7 @@ class Program
 
         double ttncn = 0;
         double tntt = 0;
+        
         Console.Write("\n Nhập tháng dưới dạng số từ 1 -> 12 :  ");
         int month = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("----------------------\n");
@@ -45,39 +46,88 @@ class Program
         foreach (var m in employeeList)
         {
             tntt = m.GrossSalary - 11000000;
+     
             if(tntt<=5000000 ) 
             {
                 m.GrossSalary = m.GrossSalary-(tntt*0.05);
+           
 
             }
             else if(tntt>5000000 && tntt <= 10000000)
             {
                 ttncn = tntt - 5000000;
-                m.GrossSalary = m.GrossSalary - (5000000 * 0.05) + (ttncn * 0.1);
+                m.GrossSalary = m.GrossSalary - (5000000 * 0.05) + (ttncn * 0.10);
+          
             }
             else if(tntt > 10000000 && tntt <= 18000000)
             {
-                ttncn = tntt - 8000000-5000000;
-                m.GrossSalary = m.GrossSalary - (5000000 * 0.05 - 8000000 * 0.1) + (ttncn * 0.015);
+                ttncn = tntt - 5000000-8000000;
+                m.GrossSalary = m.GrossSalary - (5000000 * 0.05 - 8000000 * 0.10) + (ttncn * 0.015);
+
             }
             else if(tntt > 18000000 && tntt <= 32000000)
             {
-                ttncn = tntt - 14000000 - 8000000 - 5000000;
-                m.GrossSalary = m.GrossSalary - (5000000 * 0.05 - 8000000 * 0.1 - 14000000 * 0.015) + (ttncn * 0.020);
+                ttncn = tntt - 5000000-8000000-14000000;
+                m.GrossSalary = m.GrossSalary - (5000000 * 0.05 - 8000000 * 0.10 - 14000000 * 0.015) + (ttncn * 0.020);
+           
             }
             else if(tntt > 32000000 && tntt <= 52000000)
             {
-                ttncn = tntt - 20000000 - 14000000 - 8000000 - 5000000;
-                m.GrossSalary = m.GrossSalary - (5000000 * 0.05 - 8000000 * 0.1 - 14000000 * 0.015 - 20000000 * 0.020) + (ttncn * 0.025);
+                ttncn = tntt - 5000000 - 8000000 - 14000000-20000000;
+                m.GrossSalary = m.GrossSalary - (5000000 * 0.05 - 8000000 * 0.10 - 14000000 * 0.015 - 20000000 * 0.020) + (ttncn * 0.025);
+          
             }
             else if(tntt > 52000000 && tntt <= 80000000)
             {
-                ttncn= tntt - 28000000 - 20000000 - 14000000 - 8000000 - 5
-            }
-            
+                ttncn = tntt - 5000000 - 8000000 - 14000000 - 20000000 - 28000000;
+                m.GrossSalary = m.GrossSalary - (5000000 * 0.05 - 800000 * 0.10 - 1400000080.015 - 20000000 * 0.020 - 28000000 * 0.025) + (ttncn * 0.030);
+     
 
-         
+            }
+            else
+            {
+                ttncn = tntt - 5000000 - 8000000 - 14000000 - 20000000 - 28000000-9000000;
+                m.GrossSalary=m.GrossSalary - (5000000 * 0.05 - 800000 * 0.10 - 1400000080.015 - 20000000 * 0.020 - 28000000 * 0.025- 9000000 * 0.030) + (ttncn * 0.035);
+           
+            }
+
+            if(month%2==0)
+            {
+                if (m.Department == "manager")
+                {
+                    m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.30);
+                    Console.WriteLine("Salary's Employeee work in Manager Department  :  " + m.EmployeeName + "  | " + m.Department + "    | " + Math.Round(m.GrossSalary));
+                }
+                if ( m.Department == "leader")
+                {
+                    Console.WriteLine("Salary's Employeee work in Leader Department   :  " + m.EmployeeName + "  | " + m.Department + "     | " + Math.Round(m.GrossSalary));
+                }
+                if (m.Department == "employee")
+                {
+                    Console.WriteLine("Salary's Employeee work                        :  " + m.EmployeeName + "  | " + m.Department + "   | " + m.GrossSalary);
+                }
+
+            }
+            else
+            {
+                if (m.Department == "manager")
+                {
+
+                    Console.WriteLine("Salary's Employeee work in Manager Department  :  " + m.EmployeeName + "  | " + m.Department + "    | " + Math.Round(m.GrossSalary));
+                }
+                if (m.Department == "leader")
+                {
+                    m.GrossSalary = m.GrossSalary + (m.GrossSalary * 0.20);
+                    Console.WriteLine("Salary's Employeee work in Leader Department   :  " + m.EmployeeName + "  | " + m.Department + "     | " + Math.Round(m.GrossSalary));
+                }
+                if (m.Department == "employee")
+                {
+                    Console.WriteLine("Salary's Employeee work                        :  " + m.EmployeeName + "  | " + m.Department + "   | " + m.GrossSalary);
+                }
+            }
         }
+
+
 
 
         //XSSFWorkbook wb = new XSSFWorkbook();
