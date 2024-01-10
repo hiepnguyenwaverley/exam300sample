@@ -1,0 +1,18 @@
+﻿@model IEnumerable< ProductViewModel >
+
+@foreach(var item in Model)
+{
+    <div class="col-xs-6 col-md-4">
+        <div class="product tumbnail thumbnail-3">
+          
+            <div class="caption">
+                <h5><a>@item.Name</a></h5>
+                <span class="description">
+                    <a>@item.Description</a>
+                </span><br>
+                <a>@item.Images</a>
+                <h6><span class="price">$@item.Price</span></h6>
+            </div>
+        </div>
+    </div>
+}
