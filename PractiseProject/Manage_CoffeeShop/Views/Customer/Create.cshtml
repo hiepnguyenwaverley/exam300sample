@@ -1,0 +1,72 @@
+﻿@model Customers
+<html>
+<head>
+
+    <style>
+
+        div {
+            border-radius: 5px;
+            background-color: ghostwhite;
+            padding: 10px;
+        }
+
+        .center {
+            margin: auto;
+            width: 60%;
+            border: 3px solid #73AD21;
+            padding: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="center container shadow p-5">
+        <h1>NEW CUSTOMER</h1>
+        <form method="post" action="Create">
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    @Html.Label("Name","Name :")<br />
+                    @Html.TextBoxFor(model => model.Name)
+                </div>
+            </div>
+
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    @Html.Label("Phone","Phone:")<br />
+                    @Html.TextBoxFor(model => model.Phone)
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    @Html.Label("Email","Email:")<br />
+                    @Html.TextBoxFor(model => model.Email)
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    @Html.Label("Country","Country:")<br />
+                    @Html.TextBoxFor(model => model.Country)
+                </div>
+            </div>
+
+
+
+            <div>
+                <input class="btn btn-outline-success btn-lg" type="submit" value="SAVE">
+                <a asp-controller="Customer" asp-action="Index" class="btn btn-lg btn-warning p-2">Back To List Customer</a>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>

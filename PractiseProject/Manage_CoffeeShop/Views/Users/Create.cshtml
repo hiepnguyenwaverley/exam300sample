@@ -1,0 +1,69 @@
+﻿@model Users
+<html>
+<head>
+
+    <style>
+
+        div {
+            border-radius: 5px;
+            background-color: ghostwhite;
+            padding: 10px;
+
+        }
+
+        .center {
+
+            margin: auto;
+            width: 60%;
+            border: 3px solid #73AD21;
+            padding: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="center container shadow p-5">
+        <h1>NEW USER</h1>
+        <form method="post" action="Create">
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    @Html.Label("Name","Name :")<br />
+                    @Html.TextBoxFor(model => model.Name)
+                </div>
+            </div>
+
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    @Html.Label("Password","Password:")<br />
+                    @Html.TextBoxFor(model => model.Password)
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div>
+                    @Html.Label("RoleName","Select RoleName :")<br>
+                    <b>Manager</b>
+                    @Html.RadioButtonFor(model=>model.Role,"Manager")
+                    <b>Staff</b>
+                    @Html.RadioButtonFor(model=>model.Role,"Staff")
+                </div>
+            </div>
+
+
+
+            <div>
+                <input class="btn btn-outline-success btn-lg" type="submit" value="SAVE">
+                <a asp-controller="Users" asp-action="Index" class="btn btn-lg btn-warning p-2">Back To List Users</a>
+            </div>
+           
+        </form>
+    </div>
+</body>
+</html>
