@@ -60,7 +60,6 @@ namespace Manage_CoffeeShop.Controllers
             user.Name = model.Name;
             user.Password = model.Password;
             user.RoleId = model.RoleId;
-
             _db.Users.Add(user);
             _db.SaveChanges();
             return RedirectToAction("Index");

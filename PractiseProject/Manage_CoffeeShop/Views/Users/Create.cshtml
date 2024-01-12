@@ -32,27 +32,27 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     @Html.Label("Name","Name :")<br />
-                    @Html.TextBoxFor(model => model.Name)
+                    @Html.TextBoxFor(model => model.Name,new {required ="required"})
+                    
                 </div>
             </div>
-
 
 
             <div class="form-row">
                 <div class="form-group col-md-6">
                     @Html.Label("Password","Password:")<br />
-                    @Html.TextBoxFor(model => model.Password)
+                    @Html.TextBoxFor(model => model.Password, new { @class = "text", type = "password", required = "required" })
                 </div>
             </div>
 
 
             <div class="form-row">
                 <div>
-                    @Html.Label("RoleName","Select RoleName :")<br>
-                    <b>Manager</b>
-                    @Html.RadioButtonFor(model=>model.Role,"Manager")
-                    <b>Staff</b>
-                    @Html.RadioButtonFor(model=>model.Role,"Staff")
+                    @Html.Label("RoleId","Select RoleId :")<br>
+                    <b>1</b>
+                    @Html.RadioButtonFor(model=>model.RoleId,"1",new {required="required"})
+                    <b>2</b>
+                    @Html.RadioButtonFor(model=>model.RoleId,"2",new {required="required"})
                 </div>
             </div>
 

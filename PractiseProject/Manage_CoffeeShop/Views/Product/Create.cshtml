@@ -1,4 +1,4 @@
-﻿@model Customers
+﻿@model Product
 <html>
 <head>
 
@@ -24,14 +24,14 @@
 </head>
 <body>
     <div class="center container shadow p-5">
-        <h1>NEW CUSTOMER</h1>
+        <h1>CREATE NEW DISH COFFEE</h1>
         <form method="post" action="Create">
 
             <div class="form-row">
                 <div class="form-group col-md-6">
                     @Html.Label("Name","Name :")<br />
-                    @Html.TextBoxFor(model => model.Name, new { @class = "text" , required = "required" })
-               
+                    @Html.TextBoxFor(model => model.Name)
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -39,32 +39,38 @@
 
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    @Html.Label("Phone","Phone:")<br />
-                    @Html.TextBoxFor(model => model.Phone, new { @minlength = "10",@maxlength = "12", required = "required" })
+                    @Html.Label("Description","Description:")<br />
+                    @Html.TextAreaFor(model => model.Description)
                 </div>
             </div>
-
 
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    @Html.Label("Email","Email:")<br />
-                    @Html.TextBoxFor(model => model.Email, new { @class = "text", type = "email", required = "required" })
+                    @Html.Label("Quantity","Quantity:")<br />
+                    @Html.TextBoxFor(model => model.Quantity)
+                    @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
                 </div>
             </div>
-
 
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    @Html.Label("Country","Country:")<br />
-                    @Html.TextBoxFor(model => model.Country, new { @class = "text-danger" , required = "required" })
+                    @Html.TextBoxFor(model =>model.Images,new{type="file"})    
                 </div>
             </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    @Html.Label("Price","Price:")<br />
+                    @Html.TextBoxFor(model => model.Price)
+                </div>
+            </div>
+    
 
 
 
             <div>
                 <input class="btn btn-outline-success btn-lg" type="submit" value="SAVE">
-                <a asp-controller="Customer" asp-action="Index" class="btn btn-lg btn-warning p-2">Back To List Customer</a>
+                <a asp-controller="Product" asp-action="Index" class="btn btn-lg btn-warning p-2">Back To Menu</a>
             </div>
 
         </form>

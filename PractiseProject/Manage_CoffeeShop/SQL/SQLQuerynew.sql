@@ -54,10 +54,20 @@ VALUES
 
 
 CREATE TABLE Customers (
-  Id INT Identity PRIMARY KEY not null,
+  Id UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY not null,
   Name VARCHAR(100) not null,
-  Email VARCHAR(100) not null
+  Phone VARCHAR(20) not null,
+  Email VARCHAR(100) not null,
+  Country VARCHAR(100) not null
+  
 );
+
+INSERT INTO Customers(Name,Phone,Email,Country)
+VALUES 
+('Nguyen Van A','9725550145','nguyenvana@gmail.com','TPHCM'),
+('Nguyen Van B','9725550145','nguyenvanb@gmail.com','Ha Noi'),
+('Nguyen Van C','9725550145','nguyenvanc@gmail.com','Hai Phong'),
+('Nguyen Van D','9725550145','nguyenvand@gmail.com','Da Nang')
 
 CREATE TABLE Orders (
   Id INT Identity PRIMARY KEY not null,
