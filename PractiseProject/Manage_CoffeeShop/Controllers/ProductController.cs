@@ -1,6 +1,7 @@
 ﻿using Manage_CoffeeShop.Models;
 using Microsoft.AspNetCore.Mvc;
 using NuGet.Protocol;
+using NuGet.Protocol.Core.Types;
 
 namespace Manage_CoffeeShop.Controllers
 {
@@ -40,6 +41,8 @@ namespace Manage_CoffeeShop.Controllers
             }
         }
 
+
+
         public IActionResult ListMenu() 
         {
             var product = _db.Products.Select(e => new ProductViewModel
@@ -74,10 +77,76 @@ namespace Manage_CoffeeShop.Controllers
             _db.Products.Add(product);
             _db.SaveChanges();
             return RedirectToAction("Index");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        }
+
+        public IActionResult Edit(Guid? id)
+        {
+            var product = _db.Products.FirstOrDefault(e => e.Id == id);
+            return View(product);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(ProductViewModel model,Guid? id)
+        {
+            var product = _db.Products.FirstOrDefault(e => e.Id == id);
+            product.Name = model.Name;
+            product.Description = model.Description;
+            product.Quantity = model.Quantity;
+            var ms = new MemoryStream();
+           
+            _db.Products.Update(product);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+
+        public IActionResult Delete(Guid? id)
+        {
+            var product = _db.Products.FirstOrDefault(e => e.Id == id);
+            return View(product);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(ProductViewModel model, Guid? id)
+        {
+            var product = _db.Products.FirstOrDefault(e => e.Id == id);
+            product.Name = model.Name;
+            product.Description = model.Description;
+            product.Quantity = model.Quantity;
+            var ms = new MemoryStream();
+            var imageData = ms.ToArray();
+            product.Images = imageData;
+            product.Price = model.Price;
+            _db.Products.Remove(product);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+
         }
 
 
+        public IActionResult DetailProduct(Guid? id)
+        {
+            var product = _db.Products.FirstOrDefault(e => e.Id == id);
+            return View(product);
+        }
 
+        [HttpPost]
+        public IActionResult DetailProduct(ProductViewModel model, Guid? id)
+        {
+
+            var product = _db.Products.FirstOrDefault(e => e.Id == id);
+            product.Name = model.Name;
+            product.Description = model.Description;
+            product.Quantity = model.Quantity;
+            var ms = new MemoryStream();
+            var imageData = ms.ToArray();
+            product.Images = imageData;
+            product.Price = model.Price;
+            _db.Products.Update(product);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
     }
 }

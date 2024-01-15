@@ -19,6 +19,8 @@ namespace Manage_CoffeeShop.Models
         [StringLength(100)] 
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "Country is required")]
         public string Country { get; set; }
     }
 }

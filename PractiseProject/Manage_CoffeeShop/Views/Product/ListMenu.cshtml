@@ -15,6 +15,9 @@
     <div>
         <a asp-controller="Product" asp-action="Create" class="btn btn-success"><i class="bi bi-file-plus-fill"></i>Add New Dish</a>
     </div>
+    <div>
+        <a asp-controller="Product" asp-action="Index" class="btn btn-warning"><i class="bi bi-file-plus-fill"></i>Back to Menu List</a>
+    </div>
     <br />
     <table class="table table-bordered table-hover">
         <thead>
@@ -51,8 +54,8 @@
                     <td>
                         <div role="group" class="w-10 btn-group">
 
-                            <a asp-controller="Users" asp-action="Edit" asp-route-id="@item.Id" class=" btn btn-sm btn-info"><i class="bi bi-pencil-square"></i>Edit</a>&nbsp;
-                            <a asp-controller="Users" asp-action="Delete" asp-route-id="@item.Id" class=" btn btn-sm btn-danger"><i class="bi bi-pencil-square"></i>Delete</a>&nbsp;
+                            <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id" class=" btn btn-sm btn-info"><i class="bi bi-pencil-square"></i>Edit</a>&nbsp;
+                            <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id" class=" btn btn-sm btn-danger"><i class="bi bi-pencil-square"></i>Delete</a>&nbsp;
                         </div>
                     </td>
                 </tr>

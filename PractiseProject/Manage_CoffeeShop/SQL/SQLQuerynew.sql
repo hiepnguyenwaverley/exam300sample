@@ -46,13 +46,19 @@ CREATE TABLE Products (
 
 INSERT INTO Products (Name,Description,Quantity,Images,Price)
 VALUES 
-('Milk Coffee','Milk coffee is a category of coffee-based drinks made with milk',200,(SELECT *FROM OPENROWSET(BULK 'D:\project\exam300sample\PractiseProject\Manage_CoffeeShop\wwwroot\images\milkcoffee.jpg', SINGLE_BLOB) as Images), 1.60),
+('Milk Coffee','Milk coffee is a category of coffee-based drinks made with milk',200,(SELECT *FROM OPENROWSET(BULK 'D:\project\exam300sample\PractiseProject\Manage_CoffeeShop\wwwroot\images\milkcoffee.jpg', SINGLE_BLOB) as Images), 3.60),
 
-('Black Coffee','Brown sugar, boiling water, ice cubes, coffee granules ',200,(SELECT *FROM OPENROWSET(BULK 'D:\project\exam300sample\PractiseProject\Manage_CoffeeShop\wwwroot\images\blackcoffee.jpg', SINGLE_BLOB) as Images), 1.60),
+('Black Coffee','Brown sugar, boiling water, ice cubes, coffee granules ',200,(SELECT *FROM OPENROWSET(BULK 'D:\project\exam300sample\PractiseProject\Manage_CoffeeShop\wwwroot\images\blackcoffee.jpg', SINGLE_BLOB) as Images), 2.60),
 
-('Cappucino',' espresso coffee drink, topped with a small amount of foamed or steamed milk ',200,(SELECT *FROM OPENROWSET(BULK 'D:\project\exam300sample\PractiseProject\Manage_CoffeeShop\wwwroot\images\download.jpg', SINGLE_BLOB) as Images), 1.60)
+('Cappucino',' espresso coffee drink, topped with a small amount of foamed or steamed milk ',200,(SELECT *FROM OPENROWSET(BULK 'D:\project\exam300sample\PractiseProject\Manage_CoffeeShop\wwwroot\images\Cappucino.jpg', SINGLE_BLOB) as Images), 3.60),
 
+('Cafe Mocha','Chocolate, espresso and steamed milk ',200,(SELECT *FROM OPENROWSET(BULK 'D:\project\exam300sample\PractiseProject\Manage_CoffeeShop\wwwroot\images\Mocha.jpg', SINGLE_BLOB) as Images), 3.60),
 
+('Affogato','Espresso poured over ice cream',200,(SELECT *FROM OPENROWSET(BULK 'D:\project\exam300sample\PractiseProject\Manage_CoffeeShop\wwwroot\images\Affogato.jpg', SINGLE_BLOB) as Images), 5.20),
+
+('Cold Brew','Slow-steeped chilled coffee',200,(SELECT *FROM OPENROWSET(BULK 'D:\project\exam300sample\PractiseProject\Manage_CoffeeShop\wwwroot\images\coldbrew.jpg', SINGLE_BLOB) as Images), 3.00)
+
+DELETE FROM Products;
 CREATE TABLE Customers (
   Id UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY not null,
   Name VARCHAR(100) not null,

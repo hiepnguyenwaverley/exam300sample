@@ -24,8 +24,8 @@
 </head>
 <body>
     <div class="center container shadow p-5">
-        <h1>CREATE NEW DISH COFFEE</h1>
-        <form method="post" action="Create">
+        <h1>DETAIL DISH COFFEE</h1>
+        <form method="post" action="Edit">
 
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -54,24 +54,25 @@
 
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    @Html.TextBoxFor(model => model.Images,"",new {type="file",@class="form-control"} )
+                    @Html.TextBoxFor(model => model.Images,"",new {@class="form-control"} )
                     @Html.ValidationMessageFor(model => model.Images, "", new { required="required" })
                 </div>
-                            
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    @Html.Label("Price","Price:")<br />
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.Label("Price","Price:")<br />
                         @Html.TextBoxFor(model => model.Price, "", new { @class = "text",required="required" })
+                    </div>
                 </div>
             </div>
-    
 
 
 
-            <div>
-                <input class="btn btn-outline-success btn-lg" type="submit" value="SAVE">
-                <a asp-controller="Product" asp-action="ListMenu" class="btn btn-lg btn-warning p-2">Back To Menu</a>
-            </div>
+
+                <div>
+                    <input class="btn btn-outline-success btn-lg" type="submit" value="SAVE">
+                    <a asp-controller="Product" asp-action="ListMenu" class="btn btn-lg btn-warning p-2">Back To Menu</a>
+                </div>
 
         </form>
     </div>
