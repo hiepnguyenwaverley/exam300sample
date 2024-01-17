@@ -81,7 +81,7 @@ namespace Manage_CoffeeShop.Controllers
                     using (var stream = System.IO.File.Create(filePath))
                     {
                         formFile.CopyToAsync(stream);
-                        product.Images=model.Images;
+                        
                     }
                     
                 }
