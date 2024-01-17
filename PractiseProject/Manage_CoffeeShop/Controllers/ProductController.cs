@@ -1,7 +1,9 @@
 ﻿using Manage_CoffeeShop.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NuGet.Protocol;
 using NuGet.Protocol.Core.Types;
+using System.Drawing;
 
 namespace Manage_CoffeeShop.Controllers
 {
@@ -63,16 +65,27 @@ namespace Manage_CoffeeShop.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(ProductViewModel model) 
+        public IActionResult Create(ProductViewModel model,List<IFormFile> files) 
         {
             var product = new Product();
             product.Id = Guid.NewGuid();
             product.Name = model.Name;
             product.Description = model.Description;
             product.Quantity = model.Quantity;
-            var ms = new MemoryStream();
-            var imageData = ms.ToArray();
-            product.Images = imageData;
+            foreach (var formFile in files)
+            {
+                if (formFile.Length > 0)
+                {
+                    var filePath = Path.GetTempFileName();
+
+                    using (var stream = System.IO.File.Create(filePath))
+                    {
+                        formFile.CopyToAsync(stream);
+                        product.Images=model.Images;
+                    }
+                    
+                }
+            }
             product.Price = model.Price;
             _db.Products.Add(product);
             _db.SaveChanges();
@@ -89,14 +102,7 @@ namespace Manage_CoffeeShop.Controllers
         [HttpPost]
         public IActionResult Edit(ProductViewModel model,Guid? id)
         {
-            var product = _db.Products.FirstOrDefault(e => e.Id == id);
-            product.Name = model.Name;
-            product.Description = model.Description;
-            product.Quantity = model.Quantity;
-            var ms = new MemoryStream();
-           
-            _db.Products.Update(product);
-            _db.SaveChanges();
+  
             return RedirectToAction("Index");
 
         }
@@ -110,16 +116,7 @@ namespace Manage_CoffeeShop.Controllers
         [HttpPost]
         public IActionResult Delete(ProductViewModel model, Guid? id)
         {
-            var product = _db.Products.FirstOrDefault(e => e.Id == id);
-            product.Name = model.Name;
-            product.Description = model.Description;
-            product.Quantity = model.Quantity;
-            var ms = new MemoryStream();
-            var imageData = ms.ToArray();
-            product.Images = imageData;
-            product.Price = model.Price;
-            _db.Products.Remove(product);
-            _db.SaveChanges();
+
             return RedirectToAction("Index");
 
         }
@@ -135,16 +132,7 @@ namespace Manage_CoffeeShop.Controllers
         public IActionResult DetailProduct(ProductViewModel model, Guid? id)
         {
 
-            var product = _db.Products.FirstOrDefault(e => e.Id == id);
-            product.Name = model.Name;
-            product.Description = model.Description;
-            product.Quantity = model.Quantity;
-            var ms = new MemoryStream();
-            var imageData = ms.ToArray();
-            product.Images = imageData;
-            product.Price = model.Price;
-            _db.Products.Update(product);
-            _db.SaveChanges();
+      
             return RedirectToAction("Index");
         }
 

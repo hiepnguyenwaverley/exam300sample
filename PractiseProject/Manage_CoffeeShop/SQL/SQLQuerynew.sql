@@ -43,7 +43,7 @@ CREATE TABLE Products (
   Price DECIMAL(10,2) not null ,
 
 );
-
+	
 INSERT INTO Products (Name,Description,Quantity,Images,Price)
 VALUES 
 ('Milk Coffee','Milk coffee is a category of coffee-based drinks made with milk',200,(SELECT *FROM OPENROWSET(BULK 'D:\project\exam300sample\PractiseProject\Manage_CoffeeShop\wwwroot\images\milkcoffee.jpg', SINGLE_BLOB) as Images), 3.60),

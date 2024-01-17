@@ -21,11 +21,28 @@
             text-align: center;
         }
     </style>
+    <script>
+
+        fileImage.onchange = evt => {
+
+        const [file] = fileImage.files
+
+        if (file) {
+
+        preview.src = URL.createObjectURL(file);
+
+        $("#preview").removeClass("hidden");
+
+        }
+
+        }
+
+    </script>
 </head>
 <body>
     <div class="center container shadow p-5">
         <h1>CREATE NEW DISH COFFEE</h1>
-        <form method="post" action="Create">
+        <form enctype="multipart/form-data" method="post" action="Create">
 
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -54,9 +71,11 @@
 
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    @Html.TextBoxFor(model => model.Images,"",new {type="file",@class="form-control"} )
-                    @Html.ValidationMessageFor(model => model.Images, "", new { required="required" })
+                    <label class="col-form-label">Select File</label>
+                    <input asp-for="Files" class="form-control" />
+                    <span asp-validation-for="Files" class="text-danger"></span>
                 </div>
+           </div>
                             
             <div class="form-row">
                 <div class="form-group col-md-6">
