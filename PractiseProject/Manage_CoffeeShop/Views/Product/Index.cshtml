@@ -1,18 +1,32 @@
 ﻿@model IEnumerable< ProductViewModel >
+<style>
+    img {
+        border: 1px solid #DEB887;
+        border-radius: 4px;
+        padding: 5px;
+        width: 150px;
+    }
 
+</style>
+<h1 class="text-center text-muted">MENU COFFEE</h1>
+<div>
+    <a asp-controller="Product" asp-action="ListMenu" class="btn btn-success"><i class="bi bi-file-plus-fill"></i>Go to Menu List</a>
+</div><br />
 @foreach(var item in Model)
 {
-    <div class="col-xs-6 col-md-4">
-        <div class="product tumbnail thumbnail-3">
-          
-            <div class="caption">
-                <h5><a>@item.Name</a></h5>
-                <span class="description">
-                    <a>@item.Description</a>
-                </span><br>
-                <a>@item.Images</a>
-                <h6><span class="price">$@item.Price</span></h6>
+    <div class="container bootstrap snipets">
+        <div class="row flow-offset-1">
+            <div class="col-xs-6 col-md-4">
+                <div class="product tumbnail thumbnail-3">
+                    <img src ="@Url.Action("GetImage","Product",new {id=item.Id})">
+                    <div class="caption">
+                        <h6> <a asp-controller="Product" asp-action="DetailProduct" asp-route-id="@item.Id">@item.Name</a>&nbsp;</h6>
+                        <span class="price">Price : @item.Price</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 }
+
+

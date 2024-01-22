@@ -8,14 +8,18 @@ namespace Manage_CoffeeShop.Models
 
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
-        [Required]                              
-        [StringLength(100)]
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please enter the name")]
+        [StringLength(maximumLength: 25, MinimumLength = 10, ErrorMessage = "Length must be between 10 to 25")]
         public string Name { get; set; }
-        [Required]
-        [StringLength(50)]
+
+        [Required(ErrorMessage = "Password is required")]
+        [StringLength(10, MinimumLength=8,ErrorMessage ="Password so short!")]
         public string Password { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Role is required")]
         public int RoleId { get; set; }
+
         public virtual Roles Role { get; set; }
     
 

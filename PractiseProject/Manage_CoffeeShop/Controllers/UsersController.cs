@@ -1,4 +1,4 @@
-﻿using Manage_CoffeeShop.Models;
+﻿    using Manage_CoffeeShop.Models;
 using System.Web;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -60,7 +60,6 @@ namespace Manage_CoffeeShop.Controllers
             user.Name = model.Name;
             user.Password = model.Password;
             user.RoleId = model.RoleId;
-
             _db.Users.Add(user);
             _db.SaveChanges();
             return RedirectToAction("Index");

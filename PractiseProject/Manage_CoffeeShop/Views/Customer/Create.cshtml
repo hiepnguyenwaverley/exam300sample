@@ -30,7 +30,8 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     @Html.Label("Name","Name :")<br />
-                    @Html.TextBoxFor(model => model.Name)
+                    @Html.TextBoxFor(model => model.Name, new { @class = "text" , required = "required" })
+               
                 </div>
             </div>
 
@@ -39,7 +40,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     @Html.Label("Phone","Phone:")<br />
-                    @Html.TextBoxFor(model => model.Phone)
+                    @Html.TextBoxFor(model => model.Phone, new { @minlength = "10",@maxlength = "12", required = "required" })
                 </div>
             </div>
 
@@ -47,7 +48,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     @Html.Label("Email","Email:")<br />
-                    @Html.TextBoxFor(model => model.Email)
+                    @Html.TextBoxFor(model => model.Email, new { @class = "text", type = "email", required = "required" })
                 </div>
             </div>
 
@@ -55,7 +56,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     @Html.Label("Country","Country:")<br />
-                    @Html.TextBoxFor(model => model.Country)
+                    @Html.TextBoxFor(model => model.Country, new { @class = "text" , required = "required" })
                 </div>
             </div>
 
