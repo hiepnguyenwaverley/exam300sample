@@ -59,6 +59,7 @@ VALUES
 ('Cold Brew','Slow-steeped chilled coffee',200,(SELECT *FROM OPENROWSET(BULK 'D:\project\exam300sample\PractiseProject\Manage_CoffeeShop\wwwroot\images\coldbrew.jpg', SINGLE_BLOB) as Images), 3.00)
 
 DELETE FROM Products;
+
 CREATE TABLE Customers (
   Id UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY not null,
   Name VARCHAR(100) not null,

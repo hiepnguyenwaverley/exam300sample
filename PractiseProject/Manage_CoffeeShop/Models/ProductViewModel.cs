@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Manage_CoffeeShop.Models
@@ -11,7 +12,9 @@ namespace Manage_CoffeeShop.Models
         public string Description { get; set; }
         public int Quantity { get; set; }
         public string Images { get;set; }
-     
+
+        [NotMapped]
+        public IFormFile Files { get; set; }
         public decimal Price { get; set; }
     }
 }

@@ -17,8 +17,6 @@ namespace Manage_CoffeeShop.Models
 
         public byte[] Images { get; set; }
 
-        [NotMapped]
-        public IFormFile Files { get; set; }
 
         [Column(TypeName = "decimal(10,2)")]
         public decimal Price { get; set; }
