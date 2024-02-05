@@ -1,8 +1,8 @@
 ﻿@model Product
 <html>
 <head>
-
     <style>
+
 
         div {
             border-radius: 5px;
@@ -24,55 +24,56 @@
 </head>
 <body>
     <div class="center container shadow p-5">
-        <h1>UPDATE DISH COFFEE</h1>
-        <form method="post" action="Edit">
-
+        <h1>UPDATE MENU COFFEE</h1>
+        <form method="post" asp-action="Edit">
+            <input asp-for="Id" hidden />
             <div class="form-row">
                 <div class="form-group col-md-6">
                     @Html.Label("Name","Name :")<br />
-                    @Html.TextBoxFor(model => model.Name)
+                    @Html.TextBoxFor(model => model.Name,new {required ="required"})
                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text",required="required" })
                 </div>
             </div>
 
 
-
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    @Html.Label("Description","Description:")<br />
-                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+                    @Html.Label("Description","Description :")<br />
+                    @Html.TextAreaFor(model => model.Description,new {required ="required"})
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text",required="required" })
                 </div>
             </div>
 
+
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    @Html.Label("Quantity","Quantity:")<br />
+                    @Html.Label("Quantity","Quantity :")<br />
                     @Html.TextBoxFor(model => model.Quantity)
                     @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text",required="required" })
                 </div>
             </div>
 
+
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    @Html.TextBoxFor(model => model.Images,"",new {@class="form-control"} )
-                    @Html.ValidationMessageFor(model => model.Images, "", new { required="required" })
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        @Html.Label("Price","Price:")<br />
-                        @Html.TextBoxFor(model => model.Price, "", new { @class = "text",required="required" })
-                    </div>
+                    @Html.DisplayFor(model => model.Images,new {required ="required"})
+                    @Html.ValidationMessageFor(model => model.Images, "", new { @class = "text",required="required" })
                 </div>
             </div>
 
 
-
-
-                <div>
-                    <input class="btn btn-outline-success btn-lg" type="submit" value="SAVE">
-                    <a asp-controller="Product" asp-action="ListMenu" class="btn btn-lg btn-warning p-2">Back To Menu</a>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    @Html.Label("Price","Price :")<br />
+                    @Html.TextBoxFor(model => model.Price,new {required ="required"})
+                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text",required="required" })
                 </div>
+            </div>
+            <div>
+
+                <input class="btn btn-outline-primary btn-lg" type="submit" value="SAVE">
+                <a asp-controller="Product" asp-action="ListMenu" class="btn btn-lg btn-warning p-2">Back To List Menu</a>
+            </div>
 
         </form>
     </div>

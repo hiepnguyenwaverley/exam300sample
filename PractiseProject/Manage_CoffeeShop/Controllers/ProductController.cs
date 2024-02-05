@@ -4,6 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using NuGet.Protocol;
 using NuGet.Protocol.Core.Types;
 using System.Drawing;
+using System.IO;
+using System.IO.Compression;
+using System.Text;
+using System.Web;
 
 namespace Manage_CoffeeShop.Controllers
 {
@@ -26,12 +30,12 @@ namespace Manage_CoffeeShop.Controllers
                 Price = e.Price,
             }).ToList();
             return View(product);
-        }
+            }
 
-        
+
         public IActionResult GetImage(Guid? id)
         {
-            var product = _db.Products.Find(id);
+            var product = _db.Products.FirstOrDefault(p => p.Id == id);
 
             if (product.Images != null)
             {
@@ -39,11 +43,9 @@ namespace Manage_CoffeeShop.Controllers
             }
             else
             {
-                return NotFound();
+                return Content("Images not found");
             }
         }
-
-
 
         public IActionResult ListMenu() 
         {
@@ -72,25 +74,35 @@ namespace Manage_CoffeeShop.Controllers
             product.Name = model.Name;
             product.Description = model.Description;
             product.Quantity = model.Quantity;
-            //var fileName = Path.GetFileName(Files[0].FileName);
-            //var filePath = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot/images",fileName);
-            //model.Images = filePath;
-            //using (var fileStream = new FileStream(filePath,FileMode.Create))
-            //{
-            //    model.Files.CopyToAsync(fileStream);
-            //}
-            string path = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot/images");
-            string fileNameWithPath = Path.Combine(path, Files[0].FileName);
-
-            using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+            
+            if(Files == null || Files.Count == 0)
             {
-                model.Files.CopyTo(stream);
+                ModelState.AddModelError("Images", "Please upload images");
+                return View(model);
             }
+            var File = Files[0];
+            if (File.Length == 0)
+            {
+                ModelState.AddModelError("Images", "File is empty");
+                return View(model);
+            }
+            var fileName = Path.GetFileName(File.FileName);
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images");
+            string fileNamePath = Path.Combine(filePath, fileName);
+            using (var stream = new FileStream(fileNamePath, FileMode.Create))
+            {
+                File.CopyTo(stream);
+            }
+
+            byte[] bytes = Encoding.UTF8.GetBytes(fileNamePath);
+            string strings = Encoding.UTF8.GetString(bytes);
+            product.Images = bytes;
+            
             product.Price = model.Price;
-            _db.Products.Add(product);
+                _db.Products.Add(product);
             _db.SaveChanges();
             return RedirectToAction("Index");
-        }
+                                           }
 
         public IActionResult Edit(Guid? id)
         {
@@ -99,11 +111,19 @@ namespace Manage_CoffeeShop.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(ProductViewModel model,Guid? id)
+        public IActionResult Edit(Guid id,ProductViewModel model, List<IFormFile> Files)
         {
-  
+            var product = _db.Products.FirstOrDefault(e => e.Id == id);
+            product.Name = model.Name;
+            product.Description = model.Description;
+            product.Quantity = model.Quantity;
+           
+         
+            
+            product.Price = model.Price;
+            _db.Products.Update(product);
+            _db.SaveChanges();
             return RedirectToAction("Index");
-
         }
 
         public IActionResult Delete(Guid? id)
@@ -113,9 +133,11 @@ namespace Manage_CoffeeShop.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(ProductViewModel model, Guid? id)
+        public IActionResult Delete(ProductViewModel model, Guid id,List<IFormFile>Files)
         {
 
+
+         
             return RedirectToAction("Index");
 
         }

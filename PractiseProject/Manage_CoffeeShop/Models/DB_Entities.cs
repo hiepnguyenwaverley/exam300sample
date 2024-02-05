@@ -17,6 +17,7 @@ namespace Manage_CoffeeShop.Models
         public DbSet<Customers> Customers { get; set; }
         public DbSet<OrderItems> OrderItems { get; set; }
        
+       
       
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

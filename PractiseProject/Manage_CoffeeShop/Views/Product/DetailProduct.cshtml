@@ -30,7 +30,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     @Html.Label("Name","Name :")<br />
-                    @Html.TextBoxFor(model => model.Name)
+                    @Html.TextBoxFor(model => model.Name, new { @readonly = "readonly" })
                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text",required="required" })
                 </div>
             </div>
@@ -40,28 +40,29 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     @Html.Label("Description","Description:")<br />
-                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+                    @Html.TextAreaFor(model => model.Description, new { @readonly = "readonly" })
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
                     @Html.Label("Quantity","Quantity:")<br />
-                    @Html.TextBoxFor(model => model.Quantity)
+                    @Html.TextBoxFor(model => model.Quantity,"", new { @readonly = "readonly" })
                     @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text",required="required" })
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    @Html.TextBoxFor(model => model.Images,"",new {@class="form-control"} )
+                    @Html.TextBoxFor(model => model.Images,"", new { @readonly = "readonly" })
                     @Html.ValidationMessageFor(model => model.Images, "", new { required="required" })
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         @Html.Label("Price","Price:")<br />
-                        @Html.TextBoxFor(model => model.Price, "", new { @class = "text",required="required" })
+                        @Html.TextBoxFor(model => model.Price,"", new { @readonly = "readonly" })
+                        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text",required="required" })
                     </div>
                 </div>
             </div>
@@ -70,8 +71,8 @@
 
 
                 <div>
-                    <input class="btn btn-outline-success btn-lg" type="submit" value="SAVE">
-                    <a asp-controller="Product" asp-action="ListMenu" class="btn btn-lg btn-warning p-2">Back To Menu</a>
+                    
+                    <a asp-controller="Product" asp-action="Index" class="btn btn-lg btn-warning p-2">Back To Menu List</a>
                 </div>
 
         </form>
